@@ -1,0 +1,15 @@
+[project]
+name = "pixidemo"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["liquidcarbon <akscrps@gmail.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+compile = "gcc -shared -o src/mylib.so src/mylib.c"
+start = {cmd = "python src/main.py", depends_on = "compile"}
+
+[dependencies]
+python = "3.12.0.*"
+numpy = "1.26.0.*"
